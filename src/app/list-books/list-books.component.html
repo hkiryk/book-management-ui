@@ -1,0 +1,27 @@
+<h2>Book List</h2>
+
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th class="hidden">Id</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>ISBN-13</th>
+    <th>Comments</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of books">
+    <td class="hidden">{{book.id}}</td>
+    <td>{{book.title}}</td>
+    <td>{{book.author}}</td>
+    <td>{{book.isbn13}}</td>
+    <td>{{book.comments.length}}</td>
+    <td><button class="btn btn-danger" (click)="deleteBook(book)"> Delete </button></td>
+   <td> <button class="btn btn-success" [routerLink]="['/edit', book.id]">Edit Book</button></td>
+    <router-outlet></router-outlet>
+  </tr>
+  </tbody>
+</table>
+
